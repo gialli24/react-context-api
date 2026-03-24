@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import { useContext } from "react";
+import BudgetContext from "../contexts/BudgetContext.jsx";
+
 export default function Products() {
+
+    const { budgetMode } = useContext(BudgetContext);
 
     /* Products reactive variable */
     const [products, setProducts] = useState([]);
@@ -29,14 +34,24 @@ export default function Products() {
 
     /* Searching */
     useEffect(() => {
-        if (searchValue === "") {
-            setRenderProducts(products);
+
+        let productsList;
+
+        if (budgetMode) {
+            productsList = products.filter(product => product.price <= 30);
+
         } else {
-            const searchedProducts = products.filter(product => product.title.toLowerCase().startsWith(searchValue.toLowerCase()));
+            productsList = products;
+        }
+
+        if (searchValue === "") {
+            setRenderProducts(productsList);
+        } else {
+            const searchedProducts = productsList.filter(product => product.title.toLowerCase().startsWith(searchValue.toLowerCase()));
             setRenderProducts(searchedProducts);
         }
 
-    }, [searchValue, products])
+    }, [searchValue, products, budgetMode])
 
     return (
         <main>
