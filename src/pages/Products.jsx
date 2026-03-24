@@ -6,7 +6,7 @@ import BudgetContext from "../contexts/BudgetContext.jsx";
 
 export default function Products() {
 
-    const { budgetMode } = useContext(BudgetContext);
+    const { maxPrice } = useContext(BudgetContext);
 
     /* Products reactive variable */
     const [products, setProducts] = useState([]);
@@ -37,8 +37,8 @@ export default function Products() {
 
         let productsList;
 
-        if (budgetMode) {
-            productsList = products.filter(product => product.price <= 30);
+        if (maxPrice) {
+            productsList = products.filter(product => product.price <= maxPrice);
 
         } else {
             productsList = products;
@@ -51,7 +51,7 @@ export default function Products() {
             setRenderProducts(searchedProducts);
         }
 
-    }, [searchValue, products, budgetMode])
+    }, [searchValue, products, maxPrice])
 
     return (
         <main>

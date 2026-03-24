@@ -9,7 +9,7 @@ import BudgetContext from "../contexts/BudgetContext.jsx";
 
 export default function AppHeader() {
 
-    const { budgetMode, setBudgetMode } = useContext(BudgetContext);
+    const { maxPrice, setMaxPrice } = useContext(BudgetContext);
 
     return (
         <>
@@ -28,25 +28,18 @@ export default function AppHeader() {
                             }
                         </nav>
 
-                        <nav id="user-actions-nav">
-                            {
-                                user_actions_menu.map(page => (
-                                    <Link key={page.id} to={page.url} ><i className={`bi ${page.icon}`} ></i></Link>
-                                ))
-                            }
-
-                            <div className="form-check form-check-inline">
-                                <label className="form-check-label" >{budgetMode ? "Disattiva Modalità Budget" : "Attiva Modalità Budget"}</label>
+                        <div>
+                            <div className="input-group">
                                 <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    name="mode"
-                                    value="isBudgetMode"
-                                    checked={budgetMode}
-                                    onChange={() => setBudgetMode(!budgetMode)}
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Budget"
+                                    value={maxPrice ? maxPrice : ""}
+                                    onChange={(e) => setMaxPrice(e.target.value)}
                                 />
+                                <span className="input-group-text">$</span>
                             </div>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </header >
