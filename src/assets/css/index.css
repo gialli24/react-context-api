@@ -1,0 +1,161 @@
+@import "bootstrap";
+@import "bootstrap-icons";
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Inter Tight", sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Root Variables */
+:root {
+    --color-light: #fff;
+    --color-secondary: #666666;
+    --color-tetiary: #f1f1f1;
+    --color-dark: #1e1e1e;
+}
+
+/* Utilities */
+.app-container {
+    height: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 0 2rem;
+}
+
+.app-btn {
+    padding: 0.5rem 1rem;
+
+    border-radius: 10rem;
+}
+
+.app-btn.primary {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+/* Hero Section */
+
+section#hero {
+    background-color: var(--color-tetiary);
+    background-image: url(../img/hero-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 4rem 0;
+}
+
+section#hero h2 {
+    text-transform: uppercase;
+
+    line-height: 1;
+
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+section#hero p {
+    color: var(--color-secondary);
+}
+
+section#hero .achivments {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+
+    margin-top: 3rem;
+}
+
+section#hero .achivments>.achivment {
+    border-bottom: 1px solid var(--color-secondary);
+    line-height: 1;
+}
+
+section#hero .achivments>.achivment>h3 {
+    font-weight: 600;
+}
+
+section#hero .achivments>.achivment>p {
+    color: var(--color-secondary);
+}
+
+/* End Hero Section */
+
+
+/* Brands Section */
+
+section#brands {
+    background-color: var(--color-dark);
+
+    padding: 1rem 0;
+}
+
+/* End Brands Section */
+
+/* Products Section */
+
+section#products .product {
+    padding: 2rem;
+}
+
+section#products .product a {
+    text-decoration: none;
+
+    color: var(--color-dark);
+}
+
+section#products .product img {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+section#products .search-bar {
+    width: 100%;
+    position: relative;
+}
+
+section#products .search-bar>i {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    transform: translate(1.5rem, -50%);
+}
+
+section#products .search-bar>input {
+    width: 100%;
+
+    padding: 1rem 1rem 1rem 3.5rem;
+
+    border: none;
+    border-radius: 2rem;
+
+    background-color: var(--color-tetiary);
+}
+
+/* End Products Section */
+
+@media screen and (max-width: 576px) {
+    section#hero .content {
+        max-width: 100%;
+    }
+
+    section#hero .achivments {
+        flex-direction: column;
+    }
+
+    section#hero .achivments>.achivment {
+        width: 100%;
+    }
+}

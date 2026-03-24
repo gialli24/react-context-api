@@ -1,0 +1,8 @@
+.app-logo {
+    font-size: 2rem;
+    font-weight: 900;
+
+    text-decoration: none;
+
+    color: var(--color-dark);
+}

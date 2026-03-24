@@ -1,0 +1,12 @@
+/* Button */
+
+.app-btn {
+    padding: 0.5rem 1rem;
+
+    border-radius: 10rem;
+}
+
+.app-btn.primary {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
